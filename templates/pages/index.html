@@ -1,0 +1,25 @@
+{% extends "pages/base.html" %}
+{% load static %}
+{% block title %} InstaClone | Image Gallery {% endblock %}
+
+
+
+{% block addPhoto %}<a class="photoAdd" href="{% url 'gallery:add_post'%}"><img src="{% static '/img/addpic.png' %}"></a>{% endblock %}
+
+{% block content %}
+  <div class="gallery">
+    {% for post in object_list %}
+    <div class="mb-3">
+      <a class="image"href="#">
+        <img src="{{ post.cover.url}}" alt="{{ post.title }}">
+        </a>
+    
+        <h2>{{ post.title }}</h2>
+        <div class="vote">
+          <a class="far like fa-thumbs-up" href="{% url 'gallery:like' post.id %}"><span>{{ post.like }}</span></a>
+          <a class="far dislike fa-thumbs-down" href="{% url 'gallery:dislike' post.id %}"><span>{{ post.dislike }}</span></a>
+        </div>
+    </div>
+    {% endfor %}
+  </div>
+{% endblock %}

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static '/style.css' %}">
+    <script src="https://kit.fontawesome.com/08a7931cbe.js" crossorigin="anonymous"></script>
+    <title>{% block title %} InstaClone {% endblock %}</title>
+</head>
+<body>
+    <a class="logo" href="{% url 'gallery:index'%}"><img  src="{% static '/img/logo.png' %}"></a>
+
+    {% block addPhoto %}{% endblock %}
+
+    <div class="content">
+
+        {% block content %}{% endblock %}
+        
+    </div>
+
+<footer> &copy; Becode </footer>
+    
+</body>
+</html>
